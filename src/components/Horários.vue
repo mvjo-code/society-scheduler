@@ -192,8 +192,10 @@ onMounted(() => {
     .os-cards {
         flex-direction: column;
         gap: 30px;
-        padding: 20px;
-        align-items: center;
+        padding: 50px;
+        align-items: stretch;
+
+        background-color: red;
     }
 
     .titulo {
@@ -222,5 +224,33 @@ onMounted(() => {
     }
 }
 
+@media (max-width: 480px) {
+
+    .texto-titulo {
+        font-size: 45px;
+        letter-spacing: 2px;
+    }
+
+    /* 2. A descrição precisa de um "respiro" nas laterais para não encostar nas bordas do celular */
+    .descricao-titulo {
+        font-size: 11px;
+        padding: 0 20px; 
+    }
+
+    .os-cards {
+        margin-top: 20px; 
+        padding: 10px; 
+        gap: 20px;
+        background-color: red;
+    }
+
+
+
+    .contatos {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        padding-bottom: 20px; /* Garante que os contatos não colem no limite inferior do celular */
+    }
+}
 
 </style>

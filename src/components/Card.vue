@@ -161,5 +161,29 @@
     background-position: 50% center; 
 }
 
+@media (max-width: 768px) {
+    .card {
+        width: 37%;
+        min-height: 300px;
+        padding: 20px;
+        margin: 0 auto;
+        background-color: rgba(24, 255, 24, 0.29);
+    }
+
+    .titulo {
+        font-size: 1.2em;
+    }
+
+    .beneficios {
+        font-size: 8px;
+    }
+
+    .agendar {
+        font-size: 18px;
+        padding: 6px 8px;
+    }
+}
+
+
 
 </style>
