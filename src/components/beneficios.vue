@@ -22,7 +22,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <section class="beneficios-container">
+  <section class="beneficios-container" id="estrutura">
     
     <!-- Bar e Churrasqueira -->
     <div class="beneficio-item">
@@ -97,6 +97,14 @@ onMounted(() => {
   display: flex;
   align-items: center;
   gap: 50px;
+  transition: transform 0.5s ease-in-out;
+}
+
+.beneficio-item:hover {
+  transform: translateX(20px);
+  background-color: #cccccc0b;
+  
+
 }
 
 .imagem img {

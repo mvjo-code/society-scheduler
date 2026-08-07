@@ -4,7 +4,7 @@ import Navbar from './Navbar.vue'
 </script>
 
 <template>
-  <section class="hero-container">
+  <section class="hero-container" id="home">
     <Navbar />
     
     <!-- O conteúdo de texto e botão vai aqui -->
@@ -37,6 +37,8 @@ import Navbar from './Navbar.vue'
     padding-right: 116px;
     box-sizing: border-box;
     gap: 88px;
+
+    box-sizing: border-box;
 }
 
 .hero-content {

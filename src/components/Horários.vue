@@ -20,7 +20,7 @@ onMounted(() => {
 </script>
 
 <template>
-    <section class="horario-container">
+    <section class="horario-container" id="horarios">
         
         <!-- O Título vem de baixo -->
         <div class="titulo escondido-baixo">

@@ -3,6 +3,18 @@ import { ref } from 'vue'
 
 // O 'ref' guarda qual é a aba atual. Vamos começar com a 'Home' selecionada.
 const abaAtiva = ref('HOME')
+
+const RolarParaSecao = (idsecao) => {
+  abaAtiva.value = idsecao.toUpperCase() // Atualiza a aba ativa
+
+  const elemento = document.getElementById(idsecao)
+
+    if (elemento) {
+        elemento.scrollIntoView({ behavior: 'smooth', block: 'start' }) // Rola suavemente para a seção
+    }
+}
+
+
 </script>
 
 <template>
@@ -15,7 +27,7 @@ const abaAtiva = ref('HOME')
             <li 
                 class="link" 
                 :class="{ ativo: abaAtiva === 'HOME' }" 
-                @click="abaAtiva = 'HOME'"
+                @click="RolarParaSecao('home')"
             >
                 HOME
             </li>
@@ -23,7 +35,7 @@ const abaAtiva = ref('HOME')
             <li 
                 class="link" 
                 :class="{ ativo: abaAtiva === 'ESTRUTURA' }" 
-                @click="abaAtiva = 'ESTRUTURA'"
+                @click="RolarParaSecao('estrutura')"
             >
                 ESTRUTURA
             </li>
@@ -31,7 +43,7 @@ const abaAtiva = ref('HOME')
             <li 
                 class="link" 
                 :class="{ ativo: abaAtiva === 'HORÁRIOS' }" 
-                @click="abaAtiva = 'HORÁRIOS'"
+                @click="RolarParaSecao('horarios')"
             >
                 HORÁRIOS
             </li>
@@ -39,7 +51,7 @@ const abaAtiva = ref('HOME')
             <li 
                 class="link" 
                 :class="{ ativo: abaAtiva === 'CONTATO' }" 
-                @click="abaAtiva = 'CONTATO'"
+                @click="RolarParaSecao('horarios')"
             >
                 CONTATO
             </li>

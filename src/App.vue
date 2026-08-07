@@ -15,15 +15,27 @@ import Horarios from './components/Horários.vue'
 </template>
 
 <style>
-/* Seus estilos globais que já estavam aqui */
+/* Importação da sua fonte */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 
-main, html, body {
-  overflow-x: hidden; /* Oculta qualquer coisa que vaze para as laterais */
-  width: 100%;
+
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+/* Resetando a div raiz invisível do Vue */
+#app {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+/* evita scroll fantasma horizontal */
+main, html, body {
+  overflow-x: hidden; 
+  width: 100%;
   background-color: #0d0d0d;
   font-family: 'Montserrat', sans-serif;
 }
