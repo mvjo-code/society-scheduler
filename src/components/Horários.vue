@@ -195,7 +195,6 @@ onMounted(() => {
         padding: 50px;
         align-items: stretch;
 
-        background-color: red;
     }
 
     .titulo {
@@ -231,7 +230,6 @@ onMounted(() => {
         letter-spacing: 2px;
     }
 
-    /* 2. A descrição precisa de um "respiro" nas laterais para não encostar nas bordas do celular */
     .descricao-titulo {
         font-size: 11px;
         padding: 0 20px; 
@@ -241,7 +239,6 @@ onMounted(() => {
         margin-top: 20px; 
         padding: 10px; 
         gap: 20px;
-        background-color: red;
     }
 
 

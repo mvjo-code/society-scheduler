@@ -153,4 +153,30 @@ const abaAtiva = ref('HOME')
         }
 
     }
+
+@media (max-width: 480px) {
+        .navegacao {
+            flex-direction: row;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .links {
+            flex-direction: row;
+            width: 100%;
+            gap: 30px;
+        }
+
+        .link {
+            width: 50px;
+            height: 3%;
+            font-size: 7px;
+        }
+
+        .link.ativo {
+            width: 50px;
+            height: 3%;
+            font-size: 7px;
+        }
+    }
 </style>

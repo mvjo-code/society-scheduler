@@ -140,4 +140,19 @@ import Navbar from './Navbar.vue'
         padding: 10px 20px;
     }
 }
+
+@media (max-width: 480px) {
+    .titulo {
+        font-size: 70px;
+    }
+
+    .subtitulo {
+        font-size: 18px;
+    }
+
+    .btn-agendar {
+        font-size: 18px;
+        padding: 8px 16px;
+    }
+}
 </style>

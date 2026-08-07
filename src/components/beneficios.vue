@@ -164,4 +164,18 @@ onMounted(() => {
     max-width: 100%;
   }
 }
+
+@media (max-width: 480px) {
+  .beneficio-item {
+    gap: 20px;
+  }
+
+  .conteudo h2 {
+    font-size: 28px;
+  }
+
+  .conteudo p {
+    font-size: 16px;
+  }
+}
 </style>

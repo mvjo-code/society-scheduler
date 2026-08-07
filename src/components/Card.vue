@@ -167,7 +167,6 @@
         min-height: 300px;
         padding: 20px;
         margin: 0 auto;
-        background-color: rgba(24, 255, 24, 0.29);
     }
 
     .titulo {
@@ -184,6 +183,26 @@
     }
 }
 
+@media (max-width: 480px) {
+    .card {
+        width: 60%;
+        min-height: 250px;
+        padding: 15px;
+    }
+
+    .titulo {
+        font-size: 1em;
+    }
+
+    .beneficios {
+        font-size: 7px;
+    }
+
+    .agendar {
+        font-size: 16px;
+        padding: 5px 7px;
+    }
+}
 
 
 </style>
