@@ -19,6 +19,8 @@ import Horarios from './components/Horários.vue'
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 
 main, html, body {
+  overflow-x: hidden; /* Oculta qualquer coisa que vaze para as laterais */
+  width: 100%;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
