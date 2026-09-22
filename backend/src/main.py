@@ -23,15 +23,6 @@ app = FastAPI (
     version="1.0.0"
 )
 
-app.add_middleware(
-    CORSMiddleware,
-    # Em produção, você colocaria o domínio real do site aqui. 
-    # O "*" libera para o React bater na API rodando localmente na sua máquina.
-    allow_origins=["*"], 
-    allow_credentials=True,
-    allow_methods=["*"], # Libera GET, POST, PUT, DELETE
-    allow_headers=["*"], # Libera enviar o Authorization (Token)
-)
 
 app.include_router(cliente_rota)
 app.include_router(agendamento_rota)
@@ -39,7 +30,8 @@ app.include_router(agendamento_rota)
 # configuração do CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"],  # ajuste pra porta que seu Vue usa
+    allow_origins=["http://localhost:5173", 
+                   "https://mvjo-code.github.io"],  
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
