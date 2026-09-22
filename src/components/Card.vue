@@ -1,12 +1,37 @@
 <script setup>
+import { ref } from 'vue'
+import TelaLogin from './TelaLogin.vue'
+import TelaOpcoes from './PreferenciaAgendamento.vue' 
+import TelaCadastro from './TelaCadastro.vue'
 
-    defineProps({
-        titulo: String,
-        horario1: String,
-        horario2: String,
-        valor1: String,
-        valor2: String
-    })
+// 1. Cria as referências (os nomes aqui agora estão iguaizinhos ao HTML)
+const refModalOpcoes = ref(null)
+const refModalLogin = ref(null)
+const refModalCadastro = ref(null) // 2. Cria a referência (controle remoto)
+
+// 2. Quando clicar no botão "Agendar" do Card, abre as opções
+const acionarOpcoes = () => {
+  refModalOpcoes.value.abrirModal()
+}
+
+// 3. Esta é a função que faltava! Ela escuta o grito da TelaOpcoes e abre o Login
+const abrirTelaDeLogin = () => {
+  refModalLogin.value.abrirModal()
+}
+
+
+// 3. Cria a função que aperta o botão do controle remoto do Cadastro
+const abrirTelaDeCadastro = () => {
+  refModalCadastro.value.abrirModal()
+}
+
+defineProps({
+    titulo: String,
+    horario1: String,
+    horario2: String,
+    valor1: String,
+    valor2: String
+})
 </script>
 
 <template>
@@ -20,8 +45,6 @@
             </div>
             <div class="horarios">
                 <div class="horario">
-    
-
                     <p>{{ horario1 }}</p>
                     <p>R$ {{ valor1 }}</p>
                 </div>
@@ -30,11 +53,15 @@
                     <p>R$ {{ valor2 }}</p>
                 </div>
             </div>
-            <button class="agendar">Agendar</button>
+            <!-- O botão chama a função de abrir as opções -->
+            <button @click="acionarOpcoes" class="agendar">Agendar</button>
         </div>
-
     </div>
 
+    <!-- Nomes dos refs ajustados para baterem perfeitamente com o Script -->
+    <TelaOpcoes ref="refModalOpcoes" @abrirLogin="abrirTelaDeLogin" />
+    <TelaLogin ref="refModalLogin" @abrirCadastro="abrirTelaDeCadastro" />
+    <TelaCadastro ref="refModalCadastro" @abrirLogin="abrirTelaDeLogin"/>
 </template>
 
 <style scoped>

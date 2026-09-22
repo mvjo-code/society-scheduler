@@ -1,0 +1,55 @@
+from fastapi import FastAPI
+from db.connection import DBConnection, Base
+from fastapi.middleware.cors import CORSMiddleware
+
+from router.clientes import router as cliente_rota
+from router.agendamentos import router as agendamento_rota
+
+
+from fastapi.middleware.cors import CORSMiddleware # para permitir que o front-end (Vue) acesse a API
+
+
+
+
+
+db_con = DBConnection()
+engine = db_con.get_engine()
+
+Base.metadata.create_all(bind=engine)
+
+app = FastAPI (
+    title="API arena society",
+    description="backend para gerenciamento de clientes e agendamento de horários.",
+    version="1.0.0"
+)
+
+app.add_middleware(
+    CORSMiddleware,
+    # Em produção, você colocaria o domínio real do site aqui. 
+    # O "*" libera para o React bater na API rodando localmente na sua máquina.
+    allow_origins=["*"], 
+    allow_credentials=True,
+    allow_methods=["*"], # Libera GET, POST, PUT, DELETE
+    allow_headers=["*"], # Libera enviar o Authorization (Token)
+)
+
+app.include_router(cliente_rota)
+app.include_router(agendamento_rota)
+
+# configuração do CORS
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:5173"],  # ajuste pra porta que seu Vue usa
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+
+
+@app.get("/")
+def initial():
+    return {
+        "aviso": "servidor iniciado com sucesso",
+        "status": 200
+    }

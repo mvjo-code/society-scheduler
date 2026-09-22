@@ -42,7 +42,7 @@ const RolarParaSecao = (idsecao) => {
             
             <li 
                 class="link" 
-                :class="{ ativo: abaAtiva === 'HORÁRIOS' }" 
+                :class="{ ativo: abaAtiva === 'HORARIOS' }" 
                 @click="RolarParaSecao('horarios')"
             >
                 HORÁRIOS

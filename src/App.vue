@@ -2,13 +2,29 @@
 import Hero from './components/Hero.vue'
 import Beneficios from './components/beneficios.vue'
 import Horarios from './components/Horários.vue'
+import painelUsuario from './components/painelUsuario.vue';
+
+import { useAuth } from './components/useAuth.js';
+import { onMounted } from 'vue';
+const { estaLogado, buscarPerfil } = useAuth();
+
+onMounted(() => {
+  buscarPerfil();
+})
+
 </script>
 
 <template>
   <main>
-    <Hero />
-    <Beneficios />
-    <Horarios />
+    <template v-if="!estaLogado">
+      <Hero />
+      <Beneficios />
+      <Horarios />
+      
+    </template>
+    <template v-else>
+      <painelUsuario />
+    </template>
 
     <!-- Depois, as próximas seções (Cards, Benefícios) entrarão aqui embaixo -->
   </main>
