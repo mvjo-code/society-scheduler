@@ -276,4 +276,62 @@ button:hover {
 .texto-cadastro a:hover {
   color: rgba(255, 255, 255, 0.828); 
 }
+
+
+/* responsividade */
+@media (max-width: 768px) {
+  dialog[open] {
+    padding: 40px 50px;
+    gap: 30px;
+  }
+
+  h2 {
+    font-size: 50px;
+  }
+
+  form {
+    gap: 30px;
+  }
+
+  .btn-fechar-x {
+    top: 20px;
+    right: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  dialog[open] {
+    padding: 30px 20px; /* Libera espaço lateral no celular */
+    gap: 20px;
+    border-radius: 12px;
+  }
+
+  h2 {
+    font-size: 36px;
+    margin-top: 10px;
+  }
+
+  .preencher {
+    grid-template-columns: 1fr; /* Derruba as duas colunas e vira uma só */
+    gap: 15px;
+  }
+
+  /* Impede que o Nome e Email tentem ocupar duas colunas onde só existe uma */
+  .preencher input[type="email"],
+  .preencher input[placeholder="Nome Completo"] {
+    grid-column: span 1; 
+  }
+
+  .btn-fechar-x {
+    top: 15px;
+    right: 20px;
+    font-size: 24px;
+  }
+
+  .texto-cadastro {
+    font-size: 14px;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+}
 </style>
