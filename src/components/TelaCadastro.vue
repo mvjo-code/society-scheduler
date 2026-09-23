@@ -39,7 +39,7 @@ const processarCadastro = async () => {
   }
 
   try {
-    const resposta = await fetch('http://localhost:8000/cliente/', {
+    const resposta = await fetch('https://society-scheduler-y7lb.onrender.com/cliente/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',   // essa rota é JSON normal, não form

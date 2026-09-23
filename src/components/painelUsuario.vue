@@ -29,7 +29,7 @@ const carregandoJogos = ref(true)
 const buscarMeusAgendamentos = async () => {
     try {
         const token = localStorage.getItem('token')
-        const resposta = await fetch('http://localhost:8000/agendamento/meus', {
+        const resposta = await fetch('https://society-scheduler-y7lb.onrender.com/agendamento/meus', {
             headers: { Authorization: `Bearer ${token}` },
         })
 

@@ -57,7 +57,7 @@ const confirmarAgendamento = async () => {
   try {
     const token = localStorage.getItem('token')
 
-    const resposta = await fetch('http://localhost:8000/agendamento/', {
+    const resposta = await fetch('https://society-scheduler-y7lb.onrender.com/agendamento/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

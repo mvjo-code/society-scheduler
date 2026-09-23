@@ -24,7 +24,7 @@ export function useAuth() {
     if (!token) return
 
     try {
-      const resposta = await fetch('http://localhost:8000/cliente/me', {
+      const resposta = await fetch('https://society-scheduler-y7lb.onrender.com/cliente/me', {
         headers: { Authorization: `Bearer ${token}` },
       })
       if (resposta.ok) {

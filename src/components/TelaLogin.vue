@@ -34,7 +34,7 @@ const processarLogin = async () => {
     corpo.append('password', senha.value)
     corpo.append('grant_type', 'password')
 
-    const resposta = await fetch('http://localhost:8000/cliente/login', {
+    const resposta = await fetch('https://society-scheduler-y7lb.onrender.com/cliente/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
