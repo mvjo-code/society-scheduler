@@ -59,7 +59,9 @@ const processarLogin = async () => {
 
   } catch (e) {
     erro.value = 'Não foi possível conectar ao servidor.'
-  } 
+  } finally {
+    carregando.value = false
+  }
 }
 
 defineExpose({
