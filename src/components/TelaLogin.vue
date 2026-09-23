@@ -243,5 +243,59 @@ button:hover {
   color: rgba(255, 255, 255, 0.828); /* Efeito suave ao passar o mouse */
 }
 
+/* respnsivividade */
+
+@media (max-width: 768px) {
+  dialog[open] {
+    padding: 50px;
+    gap: 40px;
+    height: auto;
+    min-height: 500px;
+  }
+
+  h2 {
+    font-size: 60px;
+  }
+
+  form {
+    gap: 40px;
+  }
+
+  .btn-fechar-x {
+    top: 20px;
+    right: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  dialog[open] {
+    padding: 40px 20px; /* Reduz drasticamente o padding lateral para o celular */
+    gap: 30px;
+    border-radius: 12px; /* Suaviza a borda em telas pequenas */
+  }
+
+  h2 {
+    font-size: 40px;
+  }
+
+  form {
+    gap: 30px;
+  }
+
+  .preencher {
+    gap: 20px;
+  }
+
+  .btn-fechar-x {
+    top: 15px;
+    right: 20px;
+    font-size: 24px;
+  }
+  
+  .texto-cadastro {
+    font-size: 14px;
+    text-align: center;
+  }
+}
 
 </style>
