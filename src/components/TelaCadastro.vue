@@ -218,9 +218,13 @@ form {
   outline: none; 
 }
 
+.input-padrao:focus {
+  border-color: rgba(215, 255, 215, 0.72);
+}
+
 /* Muda a cor do texto do placeholder para um cinza clarinho */
 .input-padrao::placeholder {
-  color: rgba(83, 83, 83, 0.6);
+  color: rgba(212, 212, 212, 0.6);
   font-size: 14px;
 }
 
