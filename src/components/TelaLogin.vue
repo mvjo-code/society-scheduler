@@ -179,6 +179,11 @@ form {
   outline: none; 
 }
 
+.input-padrao:focus {
+  border-color: rgba(215, 255, 215, 0.72);
+}
+
+
 /* Muda a cor do texto do placeholder (Login/Senha) para um cinza clarinho */
 .input-padrao::placeholder {
   color: rgba(83, 83, 83, 0.6);
@@ -230,10 +235,12 @@ button:hover {
   color: rgba(255, 255, 255, 0.7); /* Deixa a pergunta levemente cinza */
   font-family: 'Montserrat', sans-serif;
   font-size: 16px;
-  margin-top: -30px; /* Puxa o texto um pouco mais pra perto do botão */
+  margin-top: 0.2em; /* Puxa o texto um pouco mais pra perto do botão */
 }
 
 .texto-cadastro a {
+
+
   color: white; /* Deixa o "Cadastrar-se" em destaque */
   font-weight: bold;
   text-decoration: none; /* Tira o sublinhado padrão */
