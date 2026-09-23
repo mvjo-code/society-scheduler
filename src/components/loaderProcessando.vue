@@ -47,10 +47,10 @@ defineProps({
 /* Scoped garante que essas animações e estilos afetem SÓ este componente */
 .loading-container {
   /* Paleta Premium isolada no escopo do container */
-  --ring-base: rgba(148, 163, 184, 0.1); /* Slate 400 */
-  --ring-accent: #38bdf8; /* Light blue sutil */
-  --ball-stroke: #64748b; /* Slate 500 */
-  --text-color: #94a3b8; /* Slate 400 */
+  --ring-base: #c9f5862e; 
+  --ring-accent: #74a629; 
+  --ball-stroke: #ffffffc3; 
+  --text-color: #cbd5e1;
 
   display: flex;
   flex-direction: column;
@@ -92,7 +92,7 @@ defineProps({
   border-radius: 50%;
   border: 1px solid var(--ring-base);
   border-bottom: 1px solid var(--ring-accent);
-  box-shadow: 0 4px 12px rgba(56, 189, 248, 0.1);
+  box-shadow: 0 4px 12px rgba(77, 177, 34, 0.306);
   animation: spin-reverse 2.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
 

@@ -59,9 +59,7 @@ const processarLogin = async () => {
 
   } catch (e) {
     erro.value = 'Não foi possível conectar ao servidor.'
-  } finally {
-    carregando.value = false
-  }
+  } 
 }
 
 defineExpose({
@@ -100,6 +98,7 @@ defineExpose({
   </dialog>
 
 
+
 </template>
 
 <style scoped>
@@ -110,11 +109,11 @@ defineExpose({
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(9, 10, 15, 0.95); 
+  background-color: rgba(9, 10, 15, 0.888); 
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 10;
+  z-index: 100;
 } 
 
 dialog[open] {
