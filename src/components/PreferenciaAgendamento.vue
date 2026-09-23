@@ -176,4 +176,83 @@ h2 {
   border: 1px solid rgba(255, 255, 255, 1);
 }
 
+.texto-dica {
+  font-family: 'Inter', sans-serif;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 18px;
+  text-align: center;
+  margin: 0;
+}
+
+/* =========================================
+   RESPONSIVIDADE 
+========================================= */
+
+@media (max-width: 768px) {
+  dialog[open] {
+    padding: 50px;
+    gap: 40px;
+    height: auto;
+    min-height: 450px;
+  }
+
+  h2 {
+    font-size: 60px;
+  }
+
+  .container-opcoes {
+    gap: 40px;
+  }
+
+  .preencher button {
+    height: 60px;
+    font-size: 24px;
+    letter-spacing: 2px; /* Reduz o espaçamento das letras para caber melhor */
+  }
+
+  .btn-fechar-x {
+    top: 20px;
+    right: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  dialog[open] {
+    padding: 40px 20px;
+    gap: 30px;
+    border-radius: 12px;
+  }
+
+  h2 {
+    font-size: 36px;
+  }
+
+  .container-opcoes {
+    gap: 30px;
+  }
+
+  .preencher {
+    gap: 20px;
+  }
+
+  .preencher button {
+    height: auto;
+    min-height: 55px;
+    padding: 12px 10px;
+    font-size: 16px; /* Fonte menor para não quebrar a linha no celular */
+    letter-spacing: 1px;
+    text-align: center; 
+  }
+
+  .btn-fechar-x {
+    top: 15px;
+    right: 20px;
+    font-size: 24px;
+  }
+
+  .texto-dica {
+    font-size: 14px;
+  }
+}
+
 </style>
