@@ -1,15 +1,18 @@
 <script setup>
 import { ref } from 'vue'
+import loaderProcessando from './loaderProcessando.vue'
 import { useAuth } from './useAuth.js'
 const { fazerLogin } = useAuth()  
 
 const modalLogin = ref(null)
 const emit = defineEmits(['abrirCadastro', 'loginSucesso'])
 
-// Variáveis que faltavam
 const email = ref('')
 const senha = ref('')
 const erro = ref('')
+
+// variável de carregamento
+const carregando = ref(false)
 
 const abrirModal = () => {
   modalLogin.value.showModal()
@@ -24,9 +27,10 @@ const irParaCadastro = () => {
   emit('abrirCadastro')
 }
 
-// Só UMA função processarLogin agora
+// rocessarLogin agora
 const processarLogin = async () => {
   erro.value = ''
+  carregando.value = true 
 
   try {
     const corpo = new URLSearchParams()
@@ -55,6 +59,8 @@ const processarLogin = async () => {
 
   } catch (e) {
     erro.value = 'Não foi possível conectar ao servidor.'
+  } finally {
+    carregando.value = false
   }
 }
 
@@ -87,13 +93,33 @@ defineExpose({
       
     </form>
 
+    <div v-if="carregando" class="telaEscura">
+      <loaderProcessando texto="Autenticando..."/>
+    </div>
+    
   </dialog>
+
+
 </template>
 
 <style scoped>
-/* O modal em si (mantive suas configurações de vidro/blur) */
+
+.telaEscura {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(9, 10, 15, 0.95); 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+} 
+
 dialog[open] {
   display: flex;
+  position: relative;
   margin: auto; 
   width: 1115px;
   max-width: 90vw; 
