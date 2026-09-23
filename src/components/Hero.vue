@@ -1,6 +1,28 @@
 <script setup>
 // Importamos a Navbar para dentro do Hero para ela flutuar sobre a imagem
+import { ref } from 'vue';
 import Navbar from './Navbar.vue'
+
+import telaOpcoes from './PreferenciaAgendamento.vue';
+import TelaLogin from './TelaLogin.vue';
+import TelaCadastro from './TelaCadastro.vue';
+
+const refModalOpcoes = ref(null);
+const refModalLogin = ref(null);
+const refModalCadastro = ref(null);
+
+const acionarOpcoes = () => {
+    refModalOpcoes.value.abrirModal()
+}
+
+const abrirTelaLogin = () => {
+    refModalLogin.value.abrirModal()
+}
+
+const abrirTelaCAdastro = () => {
+    refModalCadastro.value.abrirModal()
+}
+
 </script>
 
 <template>
@@ -11,12 +33,17 @@ import Navbar from './Navbar.vue'
     <div class="hero-content">
       <h1 class="titulo">Arena<br>Society</h1>
       <p class="subtitulo">O Seu Jogo Levado a Sério.</p>
-      <button class="btn-agendar">Agendar Meu Jogo 
+      <button @click="acionarOpcoes" class="btn-agendar">Agendar Meu Jogo 
         <img src="../assets/icons/ceta_direita.svg" class="icone-seta" alt="icone-seta-direita" />
       </button>
     </div>
   </section>
-</template>
+
+  <telaOpcoes ref="refModalOpcoes" @abrirLogin="abrirTelaLogin" />
+  <TelaLogin ref="refModalLogin" @abrirCadastro="abrirTelaCAdastro" />
+  <TelaCadastro ref="refModalCadastro" @abrirLogin="abrirTelaLogin" />
+
+</template> 
 
 <style scoped>
 .hero-container {
