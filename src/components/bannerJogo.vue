@@ -141,7 +141,8 @@ defineProps({
 
 .info-container h2 {
   margin: 0;
-  font-size: 22px;
+  margin-left: 20px;
+  font-size: 1em;
   font-style: italic;
   font-weight: 700;
   color: #f4f7f0;

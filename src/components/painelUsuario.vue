@@ -131,7 +131,7 @@ onMounted(() => {
 .cabecalho h2 {
     margin: 0;
     font-family: 'Montserrat', sans-serif;
-    font-size: 48px;
+    font-size: 2em;
     font-weight: 700;
     letter-spacing: 0.5px;
 }
