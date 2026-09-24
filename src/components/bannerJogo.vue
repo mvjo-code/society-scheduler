@@ -141,11 +141,15 @@ defineProps({
 
 .info-container h2 {
   margin: 0;
-  margin-left: 20px;
-  font-size: 1em;
-  font-style: italic;
-  font-weight: 700;
-  color: #f4f7f0;
+    margin-left: 20px;
+    font-size: 1em;
+    font-style: italic;
+    font-weight: 700;
+    color: #f4f7f0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
 }
 
 .info {
@@ -228,27 +232,65 @@ defineProps({
 }
 
 /* ---------- responsivo ---------- */
+/* ---------- responsivo banner ---------- */
 @media (max-width: 640px) {
   .banner-jogo {
     height: auto;
-    flex-wrap: wrap;
+    flex-direction: row; /* Mantém a bola ao lado do texto */
+    padding-bottom: 12px;
   }
+  
+  /* Diminui drasticamente a secção da bola para dar espaço ao texto */
   .bola {
-    width: 110px;
+    width: 70px;
+    align-items: flex-start;
+    padding-top: 14px;
   }
+  
   .bola img {
-    width: 64px;
-    height: 64px;
+    width: 48px;
+    height: 48px;
   }
+  
+  .bola .dots {
+    display: none; /* Removemos os pontos no telemóvel para um visual mais limpo */
+  }
+  
   .divisor {
-    margin: 0 14px;
+    margin: 0 10px 0 0;
   }
+  
   .info-container {
-    padding: 14px 16px 14px 0;
+    padding: 14px 12px 14px 0;
+    gap: 10px;
   }
+  
+  .info-container h2 {
+    margin-left: 0; /* Remove a margem esquerda extra no telemóvel */
+  }
+  
+  /* Compacta a área de datas e horários */
   .info {
-    flex-wrap: wrap;
-    row-gap: 10px;
+    gap: 12px;
+  }
+  
+  .info-item {
+    padding-right: 12px;
+  }
+  
+  .info-item .label {
+    font-size: 9px;
+  }
+  
+  .info-item .valor {
+    font-size: 13px;
+  }
+  
+  /* Coloca a arena e o instagram em linhas separadas no telemóvel */
+  .contato {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
   }
 }
 </style>

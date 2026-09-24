@@ -134,6 +134,10 @@ onMounted(() => {
     font-size: 2em;
     font-weight: 700;
     letter-spacing: 0.5px;
+    white-space: nowrap;      /* Impede que o texto desça para a linha de baixo */
+    overflow: hidden;         /* Esconde o que passar do ecrã */
+    text-overflow: ellipsis;  /* Coloca "..." no final do texto cortado */
+    max-width: 100%;
 }
 
 .cabecalho h3 {
@@ -236,20 +240,42 @@ onMounted(() => {
 }
 
 /* ---------- responsivo ---------- */
+/* ---------- responsivo painel-usuario ---------- */
 @media (max-width: 860px) {
+    .painel-usuario {
+        padding: 40px 16px; /* Reduzimos o padding brutalmente de 40px para 16px nas laterais */
+        gap: 20px;
+    }
+
     .corpo {
         flex-direction: column;
         align-items: stretch;
+        gap: 24px;
     }
 
     .coluna-acoes {
         width: 100%;
         flex-direction: row;
-        justify-content: center;
+        justify-content: space-between; /* Afasta os botões em vez de os centralizar juntos */
+    }
+    
+    .agendar-site {
+        flex: 1; /* Faz o botão agendar ocupar o espaço restante */
     }
 
     .sair-conta {
         align-self: auto;
+        width: 80px; /* Reduz a largura do botão sair no telemóvel */
+        padding: 0;
+    }
+    
+    /* Reduz o tamanho das fontes no telemóvel */
+    .cabecalho h2 {
+        font-size: 1.6em;
+    }
+    .cabecalho h3 {
+        font-size: 18px;
     }
 }
+    
 </style>
