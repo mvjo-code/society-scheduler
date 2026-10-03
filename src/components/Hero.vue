@@ -27,8 +27,18 @@ const abrirTelaCAdastro = () => {
 
 <template>
   <section class="hero-container" id="home">
-    <Navbar />
-    
+    <video
+      class="hero-video"
+      autoplay
+      muted
+      loop
+      playsinline
+    >
+      <source src="../assets/images/grocksembrilhocores.mp4" type="video/mp4" />
+    </video>
+
+    <Navbar style="z-index: 10;"/>
+
     <!-- O conteúdo de texto e botão vai aqui -->
     <div class="hero-content">
       <h1 class="titulo">Arena<br>Society</h1>
@@ -43,15 +53,25 @@ const abrirTelaCAdastro = () => {
   <TelaLogin ref="refModalLogin" @abrirCadastro="abrirTelaCAdastro" />
   <TelaCadastro ref="refModalCadastro" @abrirLogin="abrirTelaLogin" />
 
-</template> 
+</template>
+
 
 <style scoped>
-.hero-container {
-    background-image: url('../assets/images/hero_image.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center 100%;
 
+.hero-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 100%;
+    z-index: 0;
+}
+
+.hero-container {
+    position: relative; 
+    overflow: hidden;
     min-height: 100vh;
     width: 100%;
     
@@ -75,6 +95,7 @@ const abrirTelaCAdastro = () => {
     align-items: flex-end;
     gap: 73px;
     align-self: flex-end;
+    z-index: 10;
 }
 
 .titulo {
