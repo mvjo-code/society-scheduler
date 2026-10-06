@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from db.connection import DBConnection, Base
 from router.clientes import router as cliente_rota
 from router.agendamentos import router as agendamento_rota
+from router.email_veriried import router as email_rota
 from fastapi.middleware.cors import CORSMiddleware # para permitir que o front-end (Vue) acesse a API
 
 db_con = DBConnection()
@@ -18,6 +19,7 @@ app = FastAPI (
 
 app.include_router(cliente_rota)
 app.include_router(agendamento_rota)
+app.include_router(email_rota)
 
 # configuração do CORS
 app.add_middleware(

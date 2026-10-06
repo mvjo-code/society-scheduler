@@ -21,7 +21,18 @@ onMounted(() => {
 
 <template>
     <section class="horario-container" id="horarios">
-        
+
+        <!--  o video-->
+        <video
+            class="horario-video"
+            autoplay
+            muted
+            loop
+            playsinline
+        >
+            <source src="../assets/images/videocardluz2.mp4" type="video/mp4" />
+        </video>
+
         <!-- O Título vem de baixo -->
         <div class="titulo escondido-baixo">
             <h1 class="texto-titulo">HORÁRIOS</h1>
@@ -66,7 +77,22 @@ onMounted(() => {
 
 <style scoped>
 
+.horario-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 100%;
+    z-index: 0;
+}
+
+
 .horario-container {
+    position: relative;
+    overflow: hidden;
+
     box-sizing: border-box; 
     display: flex;
     padding-top:  2em;
@@ -74,10 +100,6 @@ onMounted(() => {
     justify-content: space-around;
     width: 100%;
     min-height: 100vh;
-    background-image: url('../assets/images/campo cards.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-
     padding-bottom: 100px;
 
     color: white;

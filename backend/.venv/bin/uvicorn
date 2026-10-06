@@ -1,4 +1,4 @@
-#!/home/usermth/code_projects/lab/build/from_figma/landing_page_arena_society/arena_society/backend/.venv/bin/python3
+#!/home/usermth/code_projects/lab/build/from_figma/page_arena_society/arena_society/backend/.venv/bin/python3
 # -*- coding: utf-8 -*-
 import re
 import sys

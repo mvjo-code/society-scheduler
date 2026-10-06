@@ -20,6 +20,8 @@ class Cliente(Base):
     rua = Column(String, nullable=False)
     n_casa = Column(String, nullable=False)
     senha_hash = Column(String, nullable=False)
+    amail_verificado = Column(String, default="invalido") 
+    token_verificacao= Column(String, defaut=None)
 
     agendamentos = relationship("Agendamento", back_populates="cliente")
 

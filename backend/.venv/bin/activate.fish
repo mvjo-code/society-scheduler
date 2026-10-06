@@ -33,7 +33,7 @@ end
 # Unset irrelevant variables.
 deactivate nondestructive
 
-set -gx VIRTUAL_ENV /home/usermth/code_projects/lab/build/from_figma/landing_page_arena_society/arena_society/backend/.venv
+set -gx VIRTUAL_ENV /home/usermth/code_projects/lab/build/from_figma/page_arena_society/arena_society/backend/.venv
 
 set -gx _OLD_VIRTUAL_PATH $PATH
 set -gx PATH "$VIRTUAL_ENV/"bin $PATH

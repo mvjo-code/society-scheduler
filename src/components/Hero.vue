@@ -34,7 +34,7 @@ const abrirTelaCAdastro = () => {
       loop
       playsinline
     >
-      <source src="../assets/images/grocksembrilhocores.mp4" type="video/mp4" />
+      <source src="../assets/images/HeroBackground.mp4" type="video/mp4" />
     </video>
 
     <Navbar style="z-index: 10;"/>

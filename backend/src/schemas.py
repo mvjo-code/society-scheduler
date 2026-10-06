@@ -12,6 +12,7 @@ class ClienteBase(BaseModel):
     rua: str
     n_casa: str
     email: str
+    email_verificado: str = "invalido"  # Valor padrão para o campo email_verificado
     
 
 # Molde de Entrada (O que o Vue.js envia)

@@ -1,5 +1,6 @@
 from fastapi import APIRouter, HTTPException, Depends
 from fastapi.security import OAuth2PasswordRequestForm
+import requests
 
 # importando arquivos criados
 from db import models
@@ -113,7 +114,10 @@ def atualizar_dados_cliente(id: int, novos_dados: schemas.ClienteCreate):
 
 @router.post("/", response_model=schemas.ClienteResponse)
 def adicionar_cliente(data_cliente : schemas.ClienteCreate):
-    '''funcao para cadastrar clientes'''
+    '''funcao para cadastrar clientes
+    
+        autenticação do email cadastrado é feita nessa função, chamando a API do EmailAwesome
+    '''
         
     with DBConnection() as db:
 
@@ -138,7 +142,8 @@ def adicionar_cliente(data_cliente : schemas.ClienteCreate):
             rua=data_cliente.rua,
             n_casa=data_cliente.n_casa,
             senha_hash=snh,
-            email=data_cliente.email
+            email=data_cliente.email,
+            email_verificado=data_cliente.email_verificado
         )
 
         try:
@@ -156,6 +161,40 @@ def adicionar_cliente(data_cliente : schemas.ClienteCreate):
                 status_code=500,
                 detail=f"não foi possível cadastrar o cliente, details: {str(error)}"
             )
+
+        #  autenticação do email cadastrado
+        # Faz o pedido para a API do EmailAwesome
+    try:
+        requests.post(
+            "https://api.emailawesome.com/api/validations/email_validation",
+            headers={
+                "Accept": "application/json",
+                "Content-Type": "application/json",
+                "x-api-key": API_KEY,
+            },
+            json={
+                "email": data_cliente.email,
+                "results_callback": {
+                    "url": URL_DO_SEU_WEBHOOK,
+                    "method": "POST",
+                    "headers": {
+                        "Authorization": f"Bearer {WEBHOOK_SECRET}"
+                    }
+                }
+            },
+            timeout=10
+        )
+
+        # Não precisamos ler o response.json() aqui porque sabemos que vai dar "PENDING"
+    except requests.exceptions.RequestException as e:
+        # Se a API deles cair, você não trava o seu sistema
+        raise HTTPException(status_code=500, detail=f"Erro na API de email: {e}")
+
+    # 3. Libera a tela do usuário na mesma hora! (Resposta Imediata Ilusória)
+    return {
+        "mensagem": "Cadastro recebido! Estamos preparando sua conta. Verifique sua caixa de entrada em alguns instantes.",
+        "email": data_cliente.email
+    }
 
 @router.delete("/{id}")
 def deletar_cliente(id: int):
